@@ -70,7 +70,7 @@ Visit the project's [GitHub Releases Page](https://github.com/marchfun1/SUMA-Rem
 - **Remote Admin Control**: Administrators can enter the Linux node's Admin Token on Windows to visually monitor node health, dynamically change upstream ports, review device authorization, and stream server logs.
 
 ### 🎨 Modern Desktop User Experience
-- **Tauri v2 + Lightweight Web Frontend**: Ultra-light footprint (10-25MB), rapid startup, with support for Dark and clean Light themes.
+- **Tauri v2 + Lightweight Web Frontend**: Ultra-light footprint (10-25MB), rapid startup, with an intuitive and responsive interface.
 - **6 Core Panels**:
   1. **Dashboard**: Real-time connection status, quick switches, traffic stats, and live core log streaming.
   2. **Share**: Upstream port settings, token generation & copy, and active client metrics.
@@ -83,50 +83,6 @@ Visit the project's [GitHub Releases Page](https://github.com/marchfun1/SUMA-Rem
 
 ---
 
-## 🛠️ Build from Source
-
-If you prefer to compile the binaries yourself from the GitHub repository:
-
-### Prerequisites
-- **Go**: 1.22 or newer
-- **Node.js**: 18.x or newer (with npm)
-- **Rust**: 1.75+ (installed via `rustup` recommended)
-- **C/C++ Compiler** (MSVC or MinGW-w64 on Windows, `build-essential` on Linux)
-
-### 1. Clone Repository
-```bash
-git clone https://github.com/marchfun1/SUMA-Remote-AI-Bridge.git
-cd SUMA-Remote-AI-Bridge
-```
-
-### 2. Build Linux CLI Server
-```bash
-chmod +x build-linux.sh
-./build-linux.sh
-
-# The compiled binary will be placed in the release/ folder, or build directly:
-cd core
-go build -trimpath -ldflags "-s -w" -o ../release/sumabridge cmd/cli/main.go
-```
-
-### 3. Build Windows Desktop Application
-```powershell
-# 1. Compile Go Core into DLL / executable
-cd core
-go build -trimpath -buildmode=c-shared -ldflags "-s -w" -o ../release/BridgeCore.dll ./bridge_c.go
-
-# 2. Install frontend dependencies
-cd ../frontend-tauri
-npm install
-
-# 3. Run development mode (Hot Reload)
-npm run tauri dev
-
-# 4. Build release installer package (Tauri Bundle / NSIS)
-npm run tauri build
-```
-
----
 
 ## 📋 Versioning & Updates
 

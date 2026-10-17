@@ -70,7 +70,7 @@ SUMA 遠端 AI 橋接器（SUMA Remote AI Bridge）是一套高效、安全的�
 - **遠端管理員連線 (Remote Admin)**：管理者可於 Windows 桌面端輸入 Linux 節點之 Admin Token，遠端視覺化監控節點狀態、即時調整上游埠號、審核裝置與讀取遠端串流日誌。
 
 ### 🎨 現代化桌面使用者介面
-- **Tauri v2 + 輕量 Web 前端**：極致輕巧（約 10-25MB）、啟動迅速，支援深色 (Dark) 與清新亮色 (Light) 主題切換。
+- **Tauri v2 + 輕量 Web 前端**：極致輕巧（約 10-25MB）、啟動迅速，介面直觀且流暢。
 - **6 大核心功能頁面**：
   1. **首頁 (Dashboard)**：即時連線狀態、快速開關、流量統計與核心即時日誌串流。
   2. **分享模型 (Share)**：上游埠號設定、Token 生成與複製、連線數監控。
@@ -83,51 +83,6 @@ SUMA 遠端 AI 橋接器（SUMA Remote AI Bridge）是一套高效、安全的�
 
 ---
 
-## 🛠️ 自行建置與開發 (Build from Source)
-
-如果你希望自行從 GitHub 原始碼編譯與建置本專案：
-
-### 系統需求
-- **Go**: 1.22 或更高版本
-- **Node.js**: 18.x 或更高版本 (含 npm)
-- **Rust**: 1.75+ (建議使用 `rustup` 安裝最新穩定版)
-- **C/C++ 編譯器** (Windows 需 MSVC 或 MinGW-w64，Linux 需 `build-essential`)
-
-### 1. 複製程式庫 (Clone Repository)
-```bash
-git clone https://github.com/marchfun1/SUMA-Remote-AI-Bridge.git
-cd SUMA-Remote-AI-Bridge
-```
-
-### 2. Linux CLI 伺服器版本編譯
-```bash
-# 給予建置腳本執行權限並編譯
-chmod +x build-linux.sh
-./build-linux.sh
-
-# 編譯產物將輸出於 release/ 目錄，亦可直接使用 go build：
-cd core
-go build -trimpath -ldflags "-s -w" -o ../release/sumabridge cmd/cli/main.go
-```
-
-### 3. Windows 桌面版開發與打包
-```powershell
-# 1. 編譯 Go 核心為 DLL / 執行檔
-cd core
-go build -trimpath -buildmode=c-shared -ldflags "-s -w" -o ../release/BridgeCore.dll ./bridge_c.go
-
-# 2. 安裝前端依賴
-cd ../frontend-tauri
-npm install
-
-# 3. 本機開發模式執行 (熱重載)
-npm run tauri dev
-
-# 4. 正式打包安裝程式 (Tauri Bundle / NSIS)
-npm run tauri build
-```
-
----
 
 ## 📋 版本說明與檢查更新
 

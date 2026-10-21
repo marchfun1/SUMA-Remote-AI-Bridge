@@ -19,11 +19,20 @@ SUMA 遠端 AI 橋接器（SUMA Remote AI Bridge）是一套高效、安全的�
   - 執行安裝精靈，可選擇完整安裝（含桌面捷徑、開始功能表啟動項目、自動偵測 WebView2 Runtime）。
   - 安裝精靈亦提供「完整版」、「客戶端連線專用」、「主機端分享專用」之彈性模式捷徑建立。
 - **Linux 伺服器 / 運算節點 CLI 版 (Headless)**：
-  - 下載對應架構的壓縮檔：`sumabridge-v<版本號>-linux-amd64.tar.gz` 或 `sumabridge-v<版本號>-linux-arm64.tar.gz`。
+  - 前往 GitHub Releases 下載對應架構的壓縮檔：`SUMA-Remote-AI-Bridge_<版本號>_Beta-linux-amd64.tar.gz` 或 `SUMA-Remote-AI-Bridge_<版本號>_Beta-linux-arm64.tar.gz`。
+  - 亦可直接在 Linux 終端機中使用 `wget` 或 `curl` 指令下載（以 `0.3.4.0 Beta` amd64 為例）：
+    ```bash
+    # 使用 wget 下載
+    wget "https://github.com/marchfun1/SUMA-Remote-AI-Bridge/releases/download/0340/SUMA-Remote-AI-Bridge_0.3.4.0_Beta-linux-amd64.tar.gz"
+
+    # 或使用 curl 下載
+    curl -L -O "https://github.com/marchfun1/SUMA-Remote-AI-Bridge/releases/download/0340/SUMA-Remote-AI-Bridge_0.3.4.0_Beta-linux-amd64.tar.gz"
+    ```
   - 解壓縮至系統目錄並賦予執行權限：
     ```bash
-    tar -zxvf sumabridge-v*.tar.gz
-    sudo install -m 755 sumabridge /usr/local/bin/sumabridge
+    tar -zxvf SUMA-Remote-AI-Bridge_0.3.4.0_Beta-linux-amd64.tar.gz
+    cd SUMA-Remote-AI-Bridge_0.3.4.0_Beta-linux-amd64
+    sudo install -m 755 suma-ai-bridge /usr/local/bin/suma-ai-bridge
     ```
 
 ---
@@ -39,7 +48,7 @@ SUMA 遠端 AI 橋接器（SUMA Remote AI Bridge）是一套高效、安全的�
 2. **Linux CLI 版**：
    - 在執行 Ollama 或 vLLM 的 Linux 算力節點上直接執行：
      ```bash
-     sumabridge
+     suma-ai-bridge
      ```
    - 終端機將立即輸出兩組 Token：
      - **連線 Token (`Connect Token`)**：提供給客戶端進行模型連線推論。

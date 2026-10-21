@@ -19,11 +19,20 @@ Visit the project's [GitHub Releases Page](https://github.com/marchfun1/SUMA-Rem
   - Run the setup wizard. You can perform a full installation (with desktop shortcuts, start menu items, and automatic WebView2 Runtime detection).
   - The wizard also supports custom shortcuts for "Full Edition", "Client Connector Only", and "Host Server Only".
 - **Linux Server / Compute Node CLI Edition (Headless)**:
-  - Download the archive matching your target CPU architecture: `sumabridge-v<version>-linux-amd64.tar.gz` or `sumabridge-v<version>-linux-arm64.tar.gz`.
-  - Extract to your system directory and grant executable permissions:
+  - Download the archive matching your target CPU architecture from GitHub Releases: `SUMA-Remote-AI-Bridge_<version>_Beta-linux-amd64.tar.gz` or `SUMA-Remote-AI-Bridge_<version>_Beta-linux-arm64.tar.gz`.
+  - Or download directly in your Linux terminal using `wget` or `curl` (using `0.3.4.0 Beta` amd64 as an example):
     ```bash
-    tar -zxvf sumabridge-v*.tar.gz
-    sudo install -m 755 sumabridge /usr/local/bin/sumabridge
+    # Download with wget
+    wget "https://github.com/marchfun1/SUMA-Remote-AI-Bridge/releases/download/0340/SUMA-Remote-AI-Bridge_0.3.4.0_Beta-linux-amd64.tar.gz"
+
+    # Or download with curl
+    curl -L -O "https://github.com/marchfun1/SUMA-Remote-AI-Bridge/releases/download/0340/SUMA-Remote-AI-Bridge_0.3.4.0_Beta-linux-amd64.tar.gz"
+    ```
+  - Extract the archive and install the binary with executable permissions:
+    ```bash
+    tar -zxvf SUMA-Remote-AI-Bridge_0.3.4.0_Beta-linux-amd64.tar.gz
+    cd SUMA-Remote-AI-Bridge_0.3.4.0_Beta-linux-amd64
+    sudo install -m 755 suma-ai-bridge /usr/local/bin/suma-ai-bridge
     ```
 
 ---
@@ -39,7 +48,7 @@ Visit the project's [GitHub Releases Page](https://github.com/marchfun1/SUMA-Rem
 2. **Linux CLI**:
    - On the Linux compute machine running Ollama or vLLM, simply run:
      ```bash
-     sumabridge
+     suma-ai-bridge
      ```
    - The terminal will display two tokens:
      - **Connect Token**: For client inference and model invocation.

@@ -1,6 +1,6 @@
 # Software License Agreement
 
-**Copyright Notice**
+**Copyright Notice**  
 This software is protected by copyright laws. All rights reserved by 域創數位工作室 (LOCALSOFT Digital Studio).
 
 ## Grant of License

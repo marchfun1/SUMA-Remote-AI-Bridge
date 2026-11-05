@@ -20,18 +20,18 @@ SUMA 遠端 AI 橋接器（SUMA Remote AI Bridge）是一套高效、安全的�
   - 安裝精靈亦提供「完整版」、「客戶端連線專用」、「主機端分享專用」之彈性模式捷徑建立。
 - **Linux 伺服器 / 運算節點 CLI 版 (Headless)**：
   - 前往 GitHub Releases 下載對應架構的壓縮檔：`SUMA-Remote-AI-Bridge_<版本號>_Beta-linux-amd64.tar.gz` 或 `SUMA-Remote-AI-Bridge_<版本號>_Beta-linux-arm64.tar.gz`。
-  - 亦可直接在 Linux 終端機中使用 `wget` 或 `curl` 指令下載（以 `0.3.4.0 Beta` amd64 為例）：
+  - 亦可直接在 Linux 終端機中使用 `wget` 或 `curl` 指令下載（以 `0.3.6.0 Beta` amd64 為例）：
     ```bash
     # 使用 wget 下載
-    wget "https://github.com/marchfun1/SUMA-Remote-AI-Bridge/releases/download/0340/SUMA-Remote-AI-Bridge_0.3.4.0_Beta-linux-amd64.tar.gz"
+    wget "https://github.com/marchfun1/SUMA-Remote-AI-Bridge/releases/download/0360/SUMA-Remote-AI-Bridge_0.3.6.0_Beta-linux-amd64.tar.gz"
 
     # 或使用 curl 下載
-    curl -L -O "https://github.com/marchfun1/SUMA-Remote-AI-Bridge/releases/download/0340/SUMA-Remote-AI-Bridge_0.3.4.0_Beta-linux-amd64.tar.gz"
+    curl -L -O "https://github.com/marchfun1/SUMA-Remote-AI-Bridge/releases/download/0360/SUMA-Remote-AI-Bridge_0.3.6.0_Beta-linux-amd64.tar.gz"
     ```
   - 解壓縮至系統目錄並賦予執行權限：
     ```bash
-    tar -zxvf SUMA-Remote-AI-Bridge_0.3.4.0_Beta-linux-amd64.tar.gz
-    cd SUMA-Remote-AI-Bridge_0.3.4.0_Beta-linux-amd64
+    tar -zxvf SUMA-Remote-AI-Bridge_0.3.6.0_Beta-linux-amd64.tar.gz
+    cd SUMA-Remote-AI-Bridge_0.3.6.0_Beta-linux-amd64
     sudo install -m 755 suma-ai-bridge /usr/local/bin/suma-ai-bridge
     ```
 
@@ -48,9 +48,9 @@ SUMA 遠端 AI 橋接器（SUMA Remote AI Bridge）是一套高效、安全的�
 2. **Linux CLI 版**：
    - 在執行 Ollama 或 vLLM 的 Linux 算力節點上直接執行：
      ```bash
-     suma-ai-bridge
+     suma-ai-bridge --auto-approve
      ```
-   - 終端機將立即輸出兩組 Token：
+   - 終端機將自動偵測系統語系環境（`LANG` / `LC_ALL`），並輸出對應語言（繁體中文、簡體中文或英文）的兩組 Token（亦可透過 `--lang en|zh-TW|zh-CN` 或 `SUMA_LANG` 環境變數手動指定，搭配 `--auto-approve` 即可在無 UI 環境下自動審核並核可新連線裝置）：
      - **連線 Token (`Connect Token`)**：提供給客戶端進行模型連線推論。
      - **管理 Token (`Admin Token`)**：提供給 Windows 管理端進行遠端狀態監控與連接埠動態設定。
 
@@ -85,7 +85,7 @@ SUMA 遠端 AI 橋接器（SUMA Remote AI Bridge）是一套高效、安全的�
   2. **分享模型 (Share)**：上游埠號設定、Token 生成與複製、連線數監控。
   3. **連接模型 (Connect)**：遠端連線 Token 設定、本機映射埠設定與 Base URL 一鍵複製。
   4. **裝置授權 (Devices)**：已授權裝置檢視、待審核清單、核准/拒絕與隨時撤銷控制。
-  5. **狀態診斷與日誌 (Diagnostics & Logs)**：通道連線檢測、模型 API 健康檢查、全歷來日誌聚合匯出。
+  5. **狀態診斷與日誌 (Diagnostics & Logs)**：通道連線檢測、模型 API 健康檢查、一鍵「列出模型」名稱清單、全歷來日誌聚合匯出。
   6. **系統設定 (Settings)**：開機啟動、背景常駐、斷線自動重試、更新頻率與語系切換。
 - **多語系 (i18n) 支援**：內建繁體中文 (Traditional Chinese)、簡體中文 (Simplified Chinese) 與英文 (English) 即時切換。
 - **系統匣 (System Tray) 支援**：關閉視窗常駐系統匣、背景靜默守護與快速托盤選單控制。

@@ -20,18 +20,18 @@ Visit the project's [GitHub Releases Page](https://github.com/marchfun1/SUMA-Rem
   - The wizard also supports custom shortcuts for "Full Edition", "Client Connector Only", and "Host Server Only".
 - **Linux Server / Compute Node CLI Edition (Headless)**:
   - Download the archive matching your target CPU architecture from GitHub Releases: `SUMA-Remote-AI-Bridge_<version>_Beta-linux-amd64.tar.gz` or `SUMA-Remote-AI-Bridge_<version>_Beta-linux-arm64.tar.gz`.
-  - Or download directly in your Linux terminal using `wget` or `curl` (using `0.3.4.0 Beta` amd64 as an example):
+  - Or download directly in your Linux terminal using `wget` or `curl` (using `0.3.6.0 Beta` amd64 as an example):
     ```bash
     # Download with wget
-    wget "https://github.com/marchfun1/SUMA-Remote-AI-Bridge/releases/download/0340/SUMA-Remote-AI-Bridge_0.3.4.0_Beta-linux-amd64.tar.gz"
+    wget "https://github.com/marchfun1/SUMA-Remote-AI-Bridge/releases/download/0360/SUMA-Remote-AI-Bridge_0.3.6.0_Beta-linux-amd64.tar.gz"
 
     # Or download with curl
-    curl -L -O "https://github.com/marchfun1/SUMA-Remote-AI-Bridge/releases/download/0340/SUMA-Remote-AI-Bridge_0.3.4.0_Beta-linux-amd64.tar.gz"
+    curl -L -O "https://github.com/marchfun1/SUMA-Remote-AI-Bridge/releases/download/0360/SUMA-Remote-AI-Bridge_0.3.6.0_Beta-linux-amd64.tar.gz"
     ```
   - Extract the archive and install the binary with executable permissions:
     ```bash
-    tar -zxvf SUMA-Remote-AI-Bridge_0.3.4.0_Beta-linux-amd64.tar.gz
-    cd SUMA-Remote-AI-Bridge_0.3.4.0_Beta-linux-amd64
+    tar -zxvf SUMA-Remote-AI-Bridge_0.3.6.0_Beta-linux-amd64.tar.gz
+    cd SUMA-Remote-AI-Bridge_0.3.6.0_Beta-linux-amd64
     sudo install -m 755 suma-ai-bridge /usr/local/bin/suma-ai-bridge
     ```
 
@@ -48,9 +48,9 @@ Visit the project's [GitHub Releases Page](https://github.com/marchfun1/SUMA-Rem
 2. **Linux CLI**:
    - On the Linux compute machine running Ollama or vLLM, simply run:
      ```bash
-     suma-ai-bridge
+     suma-ai-bridge --auto-approve
      ```
-   - The terminal will display two tokens:
+   - The terminal will auto-detect system language environment (`LANG` / `LC_ALL`) and output corresponding localized tokens (can also be specified via `--lang en|zh-TW|zh-CN` or `SUMA_LANG`; pairing with `--auto-approve` enables headless automatic approval for newly connected devices):
      - **Connect Token**: For client inference and model invocation.
      - **Admin Token**: For Windows admin management, node monitoring, and dynamic port configuration.
 
@@ -85,7 +85,7 @@ Visit the project's [GitHub Releases Page](https://github.com/marchfun1/SUMA-Rem
   2. **Share**: Upstream port settings, token generation & copy, and active client metrics.
   3. **Connect**: Remote connection token setup, local port mapping, and one-click Base URL copying.
   4. **Devices**: Authorized device list, pending requests, approval/rejection, and revocation controls.
-  5. **Diagnostics & Logs**: Channel connectivity tests, model API health checks, and aggregated historical log export.
+  5. **Diagnostics & Logs**: Channel connectivity tests, model API health checks, one-click "List Models" name discovery, and aggregated historical log export.
   6. **Settings**: Startup options, background tray execution, reconnect policies, update intervals, and language switching.
 - **Trilingual Localization (i18n)**: Native runtime switching between Traditional Chinese, Simplified Chinese, and English.
 - **System Tray Integration**: Minimize to tray on close, background watchdog protection, and quick tray menu actions.
